@@ -2,6 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run website:build",
   "outputDirectory": "dist/website/browser",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/components/:componentId/(preview|code)",
+      "destination": "/components/:componentId",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "git": { "deploymentEnabled": { "**": false, "main": true } }
 }

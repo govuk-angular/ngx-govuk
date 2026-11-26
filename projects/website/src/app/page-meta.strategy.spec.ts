@@ -38,6 +38,12 @@ describe('PageMetaStrategy', () => {
               },
             ],
           },
+          {
+            path: '**',
+            component: PageComponent,
+            title: 'Page not found',
+            data: { noindex: true },
+          },
         ]),
         { provide: TitleStrategy, useClass: PageMetaStrategy },
       ],
@@ -90,6 +96,13 @@ describe('PageMetaStrategy', () => {
     await harness.navigateByUrl('/components/not-a-component');
 
     expect(title()).toBe('Component not found – ngx-govuk');
+    expect(meta('name="robots"')).toBe('noindex');
+  });
+
+  it('keeps routes marked noindex out of search results', async () => {
+    await harness.navigateByUrl('/components/button/preview');
+
+    expect(title()).toBe('Page not found – ngx-govuk');
     expect(meta('name="robots"')).toBe('noindex');
   });
 });
