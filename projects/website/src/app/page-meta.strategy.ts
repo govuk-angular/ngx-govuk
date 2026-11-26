@@ -28,8 +28,9 @@ interface PageMeta {
  * from its route, so search results and link previews describe the page
  * rather than the whole site.
  *
- * A route sets its `title` and `data.description`. Component pages take
- * both from `components.data.ts`.
+ * A route sets its `title` and `data.description`, and `data.noindex` to
+ * keep it out of search results. Component pages take all three from
+ * `components.data.ts`.
  */
 @Injectable({ providedIn: 'root' })
 export class PageMetaStrategy extends TitleStrategy {
@@ -87,6 +88,7 @@ export class PageMetaStrategy extends TitleStrategy {
     return {
       title: this.buildTitle(snapshot) ?? HOME_TITLE,
       description: route.data['description'] ?? DEFAULT_DESCRIPTION,
+      noindex: route.data['noindex'] === true,
     };
   }
 

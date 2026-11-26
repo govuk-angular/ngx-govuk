@@ -13,6 +13,7 @@ import { GetStartedComponent } from './routes/get-started/get-started.component'
 import { GUIDES } from './routes/get-started/get-started.data';
 import { UsingComponentsComponent } from './routes/get-started/using-components.component';
 import { HomeComponent } from './routes/home/home.component';
+import { NotFoundComponent } from './routes/not-found/not-found.component';
 import { SupportComponent } from './routes/support/support.component';
 
 /** A get started guide's route, with its title and summary from `GUIDES`. */
@@ -86,5 +87,14 @@ export const appRoutes: Route[] = [
       description:
         'Get help with ngx-govuk, report a bug or request a component, and see which versions of Angular and GOV.UK Frontend are supported.',
     },
+  },
+  // Any other address, such as one from the old site. Vercel serves the app
+  // for every path, so without this route the page would be an empty shell
+  // with no canonical link, which search engines treat as a duplicate.
+  {
+    path: '**',
+    component: NotFoundComponent,
+    title: 'Page not found',
+    data: { noindex: true },
   },
 ];

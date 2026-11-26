@@ -379,7 +379,7 @@ export const EXAMPLES: Record<string, Example[]> = {
         ),
       title: 'Success banner',
       description:
-        'Set "bannerType" to "success". A success banner takes focus when the page loads; "disableAutoFocus" stops that here only because this page shows several examples.',
+        'Set "bannerType" to "success". It takes focus when the page loads, unless you set "disableAutoFocus", as here.',
     },
   ],
   pagination: [
@@ -515,7 +515,7 @@ export const EXAMPLES: Record<string, Example[]> = {
         ),
       title: 'Align the end slot with the navigation items',
       description:
-        'Put content, such as language navigation, inside it with "ngxGovukServiceNavigationEnd", and add the "inline" attribute.',
+        'Inside "ngx-govuk-service-navigation", add "ngxGovukServiceNavigationEnd" and "inline" to the end content, such as language navigation.',
     },
   ],
   'skip-link': [
@@ -567,7 +567,7 @@ export const EXAMPLES: Record<string, Example[]> = {
       path: 'tabs/routed',
       title: 'Tabs that open routes',
       description:
-        'Set each tab\'s "link" to a child route, in any form "routerLink" accepts, and put a "router-outlet" after the tabs. The tab for the active route is open, and the route shows below the tabs. Shown as code only, as it needs routes.',
+        'Set each tab\'s "link" to a child route, in any form "routerLink" accepts, and put a "router-outlet" inside "ngx-govuk-tabs", after the tabs. The tab for the active route is open, and the route shows below the tabs. Shown as code only, as it needs routes.',
     },
   ],
   tag: [

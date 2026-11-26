@@ -92,11 +92,11 @@ export class FormsGuideComponent {
   }
 }`;
 
-  LABEL_CODE = `<!-- A smaller heading-style label -->
+  LABEL_CODE = `<!-- A larger label -->
 <ngx-govuk-form-group label="Event name" labelSize="m">…</ngx-govuk-form-group>
 
 <!-- The label as the page's h1, when the page asks one question -->
-<ngx-govuk-form-group label="What is the name of the event?" [asPageHeading]="true">
+<ngx-govuk-form-group label="What is the name of the event?" asPageHeading>
   …
 </ngx-govuk-form-group>`;
 
