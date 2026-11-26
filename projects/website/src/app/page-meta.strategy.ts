@@ -41,7 +41,7 @@ export class PageMetaStrategy extends TitleStrategy {
   override updateTitle(snapshot: RouterStateSnapshot): void {
     const page = this.pageMeta(snapshot);
     const title =
-      page.title === HOME_TITLE ? HOME_TITLE : `${page.title} – ${SITE_NAME}`;
+      page.title === HOME_TITLE ? HOME_TITLE : `${page.title} • ${SITE_NAME}`;
     const path = snapshot.url.split(/[?#]/)[0].replace(/\/$/, '');
     const url = SITE_URL + (path || '/');
 
@@ -77,7 +77,7 @@ export class PageMetaStrategy extends TitleStrategy {
       }
       const api = route.data['tab'] === 'api';
       return {
-        title: `${component.name}${api ? ' API' : ''} – Components`,
+        title: `${component.name}${api ? ' API' : ''} • Components`,
         description: api
           ? `API reference for the ${component.name} component in ngx-govuk. ${component.description}`
           : component.description,

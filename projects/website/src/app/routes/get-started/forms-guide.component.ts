@@ -84,7 +84,7 @@ export class FormsGuideComponent {
   continue() {
     this.submitted.set(true);
     const prefix = this.errors().length ? 'Error: ' : '';
-    this.title.setTitle(\`\${prefix}Contact details – Your service\`);
+    this.title.setTitle(\`\${prefix}Contact details - Your service\`);
 
     // The first time, the summary appears and takes focus itself. After
     // that, it's already showing, so move focus to it.

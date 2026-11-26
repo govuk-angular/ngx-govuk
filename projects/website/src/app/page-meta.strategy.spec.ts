@@ -71,16 +71,16 @@ describe('PageMetaStrategy', () => {
   it("uses a route's title and description", async () => {
     await harness.navigateByUrl('/support?tab=1#versions');
 
-    expect(title()).toBe('Help and support – ngx-govuk');
+    expect(title()).toBe('Help and support • ngx-govuk');
     expect(meta('name="description"')).toBe('Get help.');
-    expect(meta('property="og:title"')).toBe('Help and support – ngx-govuk');
+    expect(meta('property="og:title"')).toBe('Help and support • ngx-govuk');
     expect(canonical()).toBe('https://www.ngx-govuk.org/support');
   });
 
   it("takes a component page's title and description from its data", async () => {
     await harness.navigateByUrl('/components/button');
 
-    expect(title()).toBe('Button – Components – ngx-govuk');
+    expect(title()).toBe('Button • Components • ngx-govuk');
     expect(meta('name="description"')).toContain('carry out an action');
     expect(meta('name="robots"')).toBeUndefined();
   });
@@ -88,21 +88,21 @@ describe('PageMetaStrategy', () => {
   it('names the API tab in the title', async () => {
     await harness.navigateByUrl('/components/button/api');
 
-    expect(title()).toBe('Button API – Components – ngx-govuk');
+    expect(title()).toBe('Button API • Components • ngx-govuk');
     expect(canonical()).toBe('https://www.ngx-govuk.org/components/button/api');
   });
 
   it('keeps unknown components out of search results', async () => {
     await harness.navigateByUrl('/components/not-a-component');
 
-    expect(title()).toBe('Component not found – ngx-govuk');
+    expect(title()).toBe('Component not found • ngx-govuk');
     expect(meta('name="robots"')).toBe('noindex');
   });
 
   it('keeps routes marked noindex out of search results', async () => {
     await harness.navigateByUrl('/components/button/preview');
 
-    expect(title()).toBe('Page not found – ngx-govuk');
+    expect(title()).toBe('Page not found • ngx-govuk');
     expect(meta('name="robots"')).toBe('noindex');
   });
 });
